@@ -1,8 +1,15 @@
+import './App.css';
 import React from 'react';
-import './app.css';
+import Navbar from './components/navbar';
+import Contents from './components/contents';
 
-function App() {
-  return <h1>hello :)</h1>;
+function app(props) {
+  return (
+    <>
+      <Navbar></Navbar>
+      <Contents></Contents>
+    </>
+  );
 }
 
-export default App;
+export default app;
