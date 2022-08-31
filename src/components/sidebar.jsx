@@ -1,6 +1,6 @@
-import React from "react";
-import SidebarMenu from "./sidebar_menu";
-import styles from "./sidebar.module.css";
+import React from 'react';
+import SidebarMenu from './sidebar_menu';
+import styles from './sidebar.module.css';
 
 function Sidebar(props) {
   return (

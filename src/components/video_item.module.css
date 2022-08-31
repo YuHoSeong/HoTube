@@ -1,0 +1,41 @@
+.container {
+  padding: 0.1em;
+  list-style: none;
+  width: 33%;
+}
+
+.video {
+  cursor: pointer;
+  transition: transform 300ms ease-in;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgrey;
+}
+
+.video:hover {
+  transform: scale(1.02);
+}
+.thumbnail {
+  height: 100%;
+  width: 40%;
+}
+
+.description {
+  display: block;
+  width: 60%;
+}
+
+.title,
+.channel {
+  margin: 0;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 50%;
+  }
+}

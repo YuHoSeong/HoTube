@@ -1,4 +1,8 @@
 .container {
+  position: sticky;
+  top: 65px;
+  left: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -6,4 +10,5 @@
   padding: 0;
   min-width: 5em;
   width: 5em;
+  margin: 0;
 }
