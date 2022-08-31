@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import VideoList from "./video_list";
 import Sidebar from "./sidebar";
+import styles from "./contents.module.css";
 
 function Contents(props) {
   // eslint-disable-next-line
   const [sidemenus, setSidemenus] = useState([
-    { id: 1, icon: "fa-solid fa-house", title: "home" },
-    { id: 2, icon: "fa-solid fa-thumbs-up", title: "좋아요한 동영상" },
-    { id: 3, icon: "fa-solid fa-clock-rotate-left", title: "시청기록" },
+    { id: 1, icon: "fa-house", title: "home" },
+    // { id: 2, icon: "fathumbsup", title: "좋아요한 동영상" },
+    // { id: 3, icon: "faclockrotateleft", title: "시청기록" },
   ]);
 
   // eslint-disable-next-line
@@ -33,10 +34,10 @@ function Contents(props) {
   }, []);
 
   return (
-    <>
+    <div className={styles.container}>
       <Sidebar sidemenus={sidemenus}></Sidebar>
       <VideoList videos={videos}></VideoList>
-    </>
+    </div>
   );
 }
 

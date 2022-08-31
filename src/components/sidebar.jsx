@@ -1,13 +1,16 @@
-import React from 'react';
-import Sidemenu from './sidemenu';
+import React from "react";
+import SidebarMenu from "./sidebar_menu";
+import styles from "./sidebar.module.css";
 
 function Sidebar(props) {
   return (
-    <div>
+    <ul className={styles.container}>
       {props.sidemenus.map((sidemenu) => {
-        return <Sidemenu key={sidemenu.id} sidemenu={sidemenu}></Sidemenu>;
+        return (
+          <SidebarMenu key={sidemenu.id} sidemenu={sidemenu}></SidebarMenu>
+        );
       })}
-    </div>
+    </ul>
   );
 }
 
