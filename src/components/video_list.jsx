@@ -1,7 +1,7 @@
-import React from 'react';
-import VideoItem from './video_item';
+import React from "react";
+import VideoItem from "./video_item";
 
-function Content(props) {
+function VideoList(props) {
   // console.log(props.videos);
   // props.map((item) => console.log(item));
   return (
@@ -13,4 +13,4 @@ function Content(props) {
   );
 }
 
-export default Content;
+export default VideoList;

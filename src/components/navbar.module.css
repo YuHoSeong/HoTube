@@ -1,0 +1,105 @@
+.container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid lightgrey;
+}
+
+.container:hover {
+  box-shadow: 0px 3px 3px 0px rgba(211, 211, 211, 0.6);
+}
+
+.logo {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo__icon {
+  color: red;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5em;
+}
+
+.logo__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgrey;
+}
+
+.input {
+  height: 2rem;
+  width: 30rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.2rem;
+  border: 0;
+  border-right: 1px solid lightgrey;
+}
+
+.button {
+  height: 2rem;
+  width: 4rem;
+  padding-right: 0.5em;
+  border: 0;
+  cursor: pointer;
+}
+
+.button__icon {
+  height: 1.2rem;
+}
+
+.info {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.bell {
+  padding: 1rem;
+  margin-right: 1em;
+  position: relative;
+  cursor: pointer;
+}
+
+.bell__icon {
+  height: 1.8rem;
+  width: 1.8rem;
+  color: darkgoldenrod;
+}
+
+.count {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.1rem;
+}
+
+.user {
+  background-color: darkorange;
+  color: white;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  text-align: center;
+  line-height: 2.2rem;
+  cursor: pointer;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Video_item(props) {
-  return <div>{props.video.snippet.title}</div>;
+  return <h1>{props.video.snippet.title}</h1>;
 }
 
 export default Video_item;
