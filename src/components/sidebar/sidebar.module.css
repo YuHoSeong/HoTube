@@ -1,0 +1,41 @@
+.container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  min-width: 5em;
+  width: 5em;
+  margin: 0;
+}
+
+.menubar {
+  list-style-type: none;
+  display: flex;
+  padding: 0.5em 0;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease-in;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  border-color: lightgrey;
+  cursor: pointer;
+}
+
+.box:hover {
+  border: 1px solid lightgrey;
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}

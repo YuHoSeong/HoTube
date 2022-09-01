@@ -1,7 +1,14 @@
 .container {
   padding: 0.1em;
   list-style: none;
+}
+
+.container.grid {
   width: 33%;
+}
+
+.container.list {
+  width: 50%;
 }
 
 .video {
@@ -35,7 +42,7 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .container {
+  .container.grid {
     width: 50%;
   }
 }
