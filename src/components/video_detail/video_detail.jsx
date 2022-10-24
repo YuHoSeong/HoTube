@@ -11,7 +11,6 @@ function VideoDetail({ video }) {
         width="100%"
         height="500px"
         src={`http://www.youtube.com/embed/${video.id}`}
-        frameborder="0"
         allowFullScreen
       ></iframe>
       <h2>{video.snippet.title}</h2>
