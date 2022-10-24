@@ -1,11 +1,6 @@
-import axios from 'axios';
-
 class Youtube {
-  constructor(key) {
-    this.youtube = axios.create({
-      baseURL: 'https://www.googleapis.com/youtube/v3',
-      params: { key: key },
-    });
+  constructor(httpClient) {
+    this.youtube = httpClient;
   }
   /**
    * home 화면 : 인기있는 동영상

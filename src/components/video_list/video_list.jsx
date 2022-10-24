@@ -4,20 +4,20 @@ import styles from './video_list.module.css';
 
 function VideoList({ videos, onVideoClick, display }) {
   return (
-    <div className={styles.container}>
-      <ul className={styles.videolist}>
-        {videos.map((video) => {
-          return (
-            <VideoItem
-              key={video.id}
-              video={video}
-              onVideoClick={onVideoClick}
-              display={display}
-            />
-          );
-        })}
-      </ul>
-    </div>
+    // <div className={styles.container}>
+    <ul className={styles.videolist}>
+      {videos.map((video) => {
+        return (
+          <VideoItem
+            key={video.id}
+            video={video}
+            onVideoClick={onVideoClick}
+            display={display}
+          />
+        );
+      })}
+    </ul>
+    // </div>
   );
 }
 

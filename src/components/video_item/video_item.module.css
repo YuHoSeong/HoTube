@@ -8,7 +8,7 @@
 }
 
 .container.list {
-  width: 50%;
+  width: 100%;
 }
 
 .video {
@@ -28,13 +28,16 @@
 }
 
 .description {
+  position: relative;
   display: block;
   width: 60%;
 }
 
 .title,
-.channel {
+.channel,
+.nowDate {
   margin: 0;
+  padding: 0.3rem 1rem;
   display: block;
   white-space: nowrap;
   overflow: hidden;

@@ -15,41 +15,42 @@ function App({ youtube }) {
   }, [youtube]);
 
   function handleSearch() {
-    youtube.search(searchRef.current.value).then((videos) => setVideos(videos));
+    youtube.search(searchRef.current.value).then((videos) => {
+      setVideos(videos);
+      setSelectedVideo(null);
+    });
   }
   function onVideoClick(video) {
     // console.log('click');
     setSelectedVideo(video);
-    console.log(video);
+    // console.log(video);
   }
 
   return (
-    <>
-      <div className={styles.sidebar}>
-        <Sidebar></Sidebar>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <Header searchRef={searchRef} onSearch={handleSearch}></Header>
-          </div>
-          <div className={styles.contents}>
-            <div className={styles.content}>
-              {selectedVideo && (
-                <div className={styles.detail}>
-                  <VideoDetail video={selectedVideo}></VideoDetail>
-                </div>
-              )}
-              <div className={styles.list}>
-                <VideoList
-                  onVideoClick={onVideoClick}
-                  videos={videos}
-                  display={selectedVideo ? 'list' : 'grid'}
-                ></VideoList>
-              </div>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <Header searchRef={searchRef} onSearch={handleSearch}></Header>
+      </div>
+      <div className={styles.container_body}>
+        <div className={styles.sidebar}>
+          <Sidebar></Sidebar>
+        </div>
+        <div className={styles.content}>
+          {selectedVideo && (
+            <div className={styles.detail}>
+              <VideoDetail video={selectedVideo}></VideoDetail>
             </div>
+          )}
+          <div className={styles.list}>
+            <VideoList
+              onVideoClick={onVideoClick}
+              videos={videos}
+              display={selectedVideo ? 'list' : 'grid'}
+            ></VideoList>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
