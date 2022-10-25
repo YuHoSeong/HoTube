@@ -58,4 +58,70 @@ React를 이용해서 Youtube 클론</br></br>
 
 ## What I Learned
 
+1. Search기능에서 input value값 가져오기 : Useref() 사용
+2. Youtube API Key가 이전에 커밋된 파일에 노출되어 수정하는 방법을 배우게 되었다. : git rebase -i [수정을 시작할 커밋의 이전 커밋]
 
+### input value값 가져오기
+
+- 원래 코드
+
+  - onChange 함수를 이용하여 value값 추출
+  - input값을 입력할때마다 함수가 호출 된다는 점
+  
+```
+  // app.jsx
+  let value ='';
+  
+  function onHandleChange(e) {
+    value = e.target.value;
+  }
+
+  function handleSearch() {
+    youtube.search(value).then((videos) => {
+      setVideos(videos);
+      setSelectedVideo(null);
+    });
+  }
+  
+  // header.jsx
+  <input
+    onChange={onHandleChange}
+    className={styles.input}
+    onKeyUp={handleKeyUp}
+    type="text"
+    placeholder="Search"
+  />
+```
+
+- 솔루션 코드
+
+  - useRef()를 이용하여 js에서처럼 특정 DOM을 선택하여 활용할 수 있다.
+  - 엘리먼트 크기, 스크롤바위치, 포커스 설정 등을 사용할 수 있다.
+  
+```
+  // app.jsx
+  const searchRef = useRef();
+  
+  function handleSearch() {
+    youtube.search(searchRef.current.value).then((videos) => {
+      setVideos(videos);
+      setSelectedVideo(null);
+    });
+  }
+  
+  // header.jsx
+  <input
+    ref={searchRef}
+    className={styles.input}
+    onKeyUp={handleKeyUp}
+    type="text"
+    placeholder="Search"
+  />
+
+```
+
+### 이전 커밋파일 수정하기
+
+1. git rebase -i [수정을 시작할 커밋의 이전 커밋] 
+2. 수정해야하는 해당 commit에 edit명령어로 저장 후 실행
+3 .해당 파일을 수정 후 git add . -> git commit --amend -> git rebase --continue 순으로 진행 후 완료
