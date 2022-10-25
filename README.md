@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Youtube Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React를 이용해서 Youtube 클론</br></br>
+메인 화면은 유튜브 인기영상 리스트를 보여주고 영상을 클릭하면 해당 영상을 볼 수 있다.</br>
+키워드를 검색하면 키워드에 해당하는 영상 리스트를 보여준다.</br>
+영상을 클릭하면 상세페이지를 보여준다.
 
-## Available Scripts
+<details open="open">
+  <summary>개요</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#screen-shots">Screen Shots</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#what-i-learned">What I Learned</a></li>
+  </ol>
+</details>
+</br>
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+드림코딩 React Basic Youtube Clone</br>
+솔루션 보기 전 작성
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<details>
+  <summary>추가사항</summary>
+  <ol>
+    <li>Header에 알림 및 로그인 UI 추가</li>
+    <li>SideBar UI 추가</li>
+  </ol>
+</details>
 
-### `yarn test`
+## Skills
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React JS
+- HTML / CSS
 
-### `yarn build`
+## Screen Shots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Homepage</br>
+  <img src="public/screenshot/homepage.png" width="600">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Detailpage</br>
+  <img src="public/screenshot/detailpage.png" width="600">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Fuctions
 
-### `yarn eject`
+- Popular List(Homepage)
+- Search List
+- Detail page(Play video)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Acknowledgements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Youtube Data Api](https://developers.google.com/youtube/v3/getting-started?hl=ko)
+- [Font Awesome](https://fontawesome.com/)
+- [Dream Coding](https://academy.dream-coding.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## What I Learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Search기능에서 input value값 가져오기 : Useref() 사용
+2. Youtube API Key가 이전에 커밋된 파일에 노출되어 수정 : git rebase -i [수정을 시작할 커밋의 이전 커밋]
 
-## Learn More
+### input value값 가져오기
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 원래 코드
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - onChange 함수를 이용하여 value값 추출
+  - input값을 입력할때마다 함수가 호출 된다는 점
 
-### Code Splitting
+```
+  // app.jsx
+  let value ='';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  function onHandleChange(e) {
+    value = e.target.value;
+  }
+  function handleSearch() {
+    youtube.search(value).then((videos) => {
+      setVideos(videos);
+      setSelectedVideo(null);
+    });
+  }
 
-### Analyzing the Bundle Size
+  // header.jsx
+  <input
+    onChange={onHandleChange}
+    className={styles.input}
+    onKeyUp={handleKeyUp}
+    type="text"
+    placeholder="Search"
+  />
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- 솔루션 코드
 
-### Making a Progressive Web App
+  - useRef()를 이용하여 js에서처럼 특정 DOM을 선택하여 활용할 수 있다.
+  - 엘리먼트 크기, 스크롤바위치, 포커스 설정 등을 사용할 수 있다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+  // app.jsx
+  const searchRef = useRef();
 
-### Advanced Configuration
+  function handleSearch() {
+    youtube.search(searchRef.current.value).then((videos) => {
+      setVideos(videos);
+      setSelectedVideo(null);
+    });
+  }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  // header.jsx
+  <input
+    ref={searchRef}
+    className={styles.input}
+    onKeyUp={handleKeyUp}
+    type="text"
+    placeholder="Search"
+  />
+```
 
-### Deployment
+### 이전 커밋파일 수정하기
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. git rebase -i [수정을 시작할 커밋의 이전 커밋]
+2. 수정해야하는 해당 commit에 edit명령어로 저장 후 실행
+3. 해당 파일을 수정 후 git add . -> git commit --amend -> git rebase --continue 순으로 진행 후 완료
